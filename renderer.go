@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"fmt"
 	html_template "html/template"
 	text_template "text/template"
 
@@ -132,7 +131,7 @@ type htmlRenderer struct {
 }
 
 func (mr *htmlRenderer) Apply(template *Template) ([]byte, error) {
-	fmt.Println("@@@", funcMap)
+
 	tmpl, err := html_template.New("Text Template").Funcs(funcMap).Funcs(sprig.HtmlFuncMap()).Parse(mr.inputTemplate)
 	if err != nil {
 		return nil, err
